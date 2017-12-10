@@ -23,5 +23,8 @@
     "manage"
   ],
   "author": "Gabriel C. Troia",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "es6-promise": "^4.1.1"
+  }
 }

@@ -1,3 +1,6 @@
+
+import { Promise } from 'es6-promise';
+
 /**
  * PassThrough takes a function "fn" as an argument and returns
  * a thunk that takes an argument "a".
