@@ -1,0 +1,27 @@
+{
+  "name": "promise-passthrough",
+  "version": "0.0.0",
+  "description": "This little function ensures that data flows correctly thru the promise chain, while it abstracts the logic away from the implementation. ",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "clean": "rm -rf ./dist",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublishOnly": "npm run clean; tsc -p ./ --outDir dist/"
+  },
+  "keywords": [
+    "javascript",
+    "js",
+    "typescript",
+    "promise",
+    "pass",
+    "through",
+    "bluebird",
+    "es6",
+    "functional",
+    "state",
+    "manage"
+  ],
+  "author": "Gabriel C. Troia",
+  "license": "MIT"
+}
