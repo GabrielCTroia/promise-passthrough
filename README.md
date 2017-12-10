@@ -19,18 +19,20 @@ import { passThrough } from 'promise-passthrough';
 const cacheData = (response) => cacheStore.put('user', response);               // => undefined
 const parseUserResponse = (response) => response.data.user;                     // => user
 const updateLocalDatabase = (user) => localDB.update('user', user);             // => undefined
-const refreshUserCreditCards = (user) => wallet.update('credits', user.credits) //=> undefined
+const refreshUserCreditCards = (user) => wallet.update('credits', user.credits) // => undefined
 
-const getUser = (id) => {
-  return httpClient.get('https://facebook.com/user/' + id) // => response
-    .then(passThrough(cacheData))                          // => response
-    .then(responseToUser)                                  // => user
-    .then(passThroughAwait(updateLocalDatabase))           // => user
-    .then(passThrough(refreshUserCredits))                 // => user
-    .then((user) => {
-      ...
-    });
-}
+httpClient.get('https://facebook.com/user/' + id) // => response
+  .then(passThrough(cacheData))                   // => response
+  .then(responseToUser)                           // => user
+  .then(passThroughAwait(updateLocalDatabase))    // => user
+  .then(passThrough(refreshUserCredits))          // => user
+  .then((user) => {
+    // Even though 'updateLocalDatabase' and 'refreshUserCredits' return undefined,
+    // by wrapping them in the passThrough/passThroughAwait functions, 
+    // the User is ensured to be returned and fed into the next line of the Promise chain.
+
+    console.log(`Hello ${user.name}`);
+  });
 ```
 
 ## Licence 
