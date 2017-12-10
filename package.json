@@ -1,7 +1,7 @@
 {
   "name": "promise-passthrough",
   "version": "0.0.0",
-  "description": "This little function ensures that data flows correctly thru the promise chain, while it abstracts the logic away from the implementation. ",
+  "description": "A little function to ensure data flows correctly through the promise chain, while abstracting the logic away from implementation.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
