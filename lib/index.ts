@@ -12,9 +12,14 @@ import { Promise } from 'es6-promise';
  * when you need to chain a function that creates a side effect!
  */
 export const passThrough = <T>(fn: (a: T) => void) => (arg: T) => {
-  // If the Promise resolves, bypass it's return and send back the arg,
-  // If the promise rejects, this will ensure the chain interrupts.
-  return Promise.resolve(fn.call(fn, arg)).then(() => arg);
+  // Invoke fn but return the passed arg right away.
+  try {
+    fn(arg);
+    return arg;
+  } catch (e) {
+    // If there's an error make sure the Promise Chain stops.
+    throw e;
+  }
 };
 
 /**
