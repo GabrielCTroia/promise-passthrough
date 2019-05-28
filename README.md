@@ -1,5 +1,7 @@
 # Promise Passthrough
 
+A small concept library that allows clear separation between side-effect functions and pure functions in Promise chains.
+
 See this short [article](https://medium.com/@gabrielctroia/side-effects-in-js-promise-chains-7db50b6302f3) to learn about what promise-passthrough attempts to solve.
 
 ## Install
